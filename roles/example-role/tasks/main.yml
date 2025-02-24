@@ -1,0 +1,25 @@
+---
+# main.yml
+
+## This file is the main.yml - it is always ran when role is assigned
+
+
+#- name: Install Ansible Dependencies 
+#  ansible.builtin.import_tasks:
+#    file: install_deps.ansible.yml
+
+# Modular approach is nice for main.yml as you can bring other instruction sets in from files
+
+# name = name of task 
+
+# ansible.builtin.import_tasks = ansible function to import tasks and run them
+
+# file = file name you want to bring in
+
+- name: Install Ansible Dependencies 
+  ansible.builtin.import_tasks:
+    file: install_deps.ansible.yml
+
+- name: Get System Info
+  ansible.builtin.import_tasks:
+    file: system-info.ansible.yml

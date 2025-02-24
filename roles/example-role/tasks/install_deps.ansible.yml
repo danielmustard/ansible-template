@@ -1,0 +1,27 @@
+---
+# install_deps.ansible.yml
+
+## This file is instruction set file to install some packages to machine
+
+#- name: Install NGINX Proxy required packages
+#  ansible.builtin.apt:
+#    pkg:
+#      - podman
+#      - podman-compose
+
+# name = name of task 
+
+# ansible.builtin.apt = ansible function to install packages using apt 
+
+# pkg = list of packages that should be installed to device
+
+- name: Install Podman
+  ansible.builtin.apt:
+    pkg:
+      - podman
+      - podman-compose
+
+- name: Copy example.yml
+  ansible.builtin.copy:
+    src: example.yml
+    dest: /etc/example.yml

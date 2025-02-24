@@ -1,0 +1,23 @@
+---
+# site.ansible.yml
+
+## This file allows you to associate certain hosts with specific roles
+
+## Roles can contain different sets of instructions that will be carried out / checked when ansible in ran
+
+
+#- hosts: nginxproxy
+#  become: true
+#  roles: 
+#    - example-nginx-proxy
+
+# hosts = group from the inventory file that the role should apply to
+
+# become = tells ansible to run the roles instructions as root ( false by default )
+
+# roles = roles applied to machine defined in roles folder
+
+- hosts: provisioning
+  become: true
+  roles:
+    - example-role

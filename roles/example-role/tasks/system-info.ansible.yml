@@ -1,0 +1,52 @@
+---
+- name: Gather kernel information
+  ansible.builtin.command: uname -a
+  register: kernel_info
+
+- name: Gather operating system release details
+  ansible.builtin.command: cat /etc/os-release
+  register: os_release
+
+- name: Gather uptime information
+  ansible.builtin.command: uptime
+  register: uptime_info
+
+- name: Gather disk usage information
+  ansible.builtin.command: df -h
+  register: disk_usage
+
+- name: Gather memory usage details
+  ansible.builtin.command: free -m
+  register: memory_usage
+
+- name: Gather CPU details
+  ansible.builtin.command: lscpu
+  register: cpu_info
+
+- name: Gather network interface information
+  ansible.builtin.command: ip a
+  register: network_info
+
+- name: Display all collected variables
+  ansible.builtin.debug:
+    msg: |
+      Kernel Information:
+      {{ kernel_info.stdout }}
+
+      OS Release:
+      {{ os_release.stdout }}
+
+      Uptime:
+      {{ uptime_info.stdout }}
+
+      Disk Usage:
+      {{ disk_usage.stdout }}
+
+      Memory Usage:
+      {{ memory_usage.stdout }}
+
+      CPU Details:
+      {{ cpu_info.stdout }}
+
+      Network Information:
+      {{ network_info.stdout }}

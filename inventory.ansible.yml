@@ -1,0 +1,25 @@
+---
+# inventory.ansible.yml
+
+## This file sets out the Server information that Ansible is going to manage
+
+## provisioning:
+##   hosts:
+##     192.168.1.254
+##   vars:
+##     ansible_user: debiantemplate
+
+## Description
+
+# Group Name = provisioning
+
+# hosts = IP Addresses of the Hosts ansible will connect to
+
+# vars = special values ansible should use when connecting to this host
+
+# ansible_user = the username that will be used to make the connection
+provisioning:
+  hosts:
+    192.168.1.218
+  vars:
+    ansible_user: debiantemplate
